@@ -4,6 +4,7 @@
 #include <string>
 #include "Assento.h"
 #include "Sessao.h"
+#include "Cliente.h"
 
 
 class Bilhete{
@@ -18,11 +19,13 @@ public:
   Assento getAssento() const;
   time_t getDataCompra() const;
   time_t getDataValidade() const;
+  Cliente getCliente() const;
 
   Bilhete setId(const std::string&);
   Bilhete setPreco(double);
   Bilhete setSessao(const Sessao&);
   Bilhete setAssento(const Assento&);
+  Bilhete setCliente(const Cliente&);
 
 
   Bilhete setDataCompra();
@@ -35,6 +38,7 @@ private:
   Assento assento;
   time_t dataCompra;
   time_t dataValidade;
+  Cliente cliente;
 };
 
 #endif

@@ -27,6 +27,9 @@ time_t Bilhete::getDataValidade() const {
 time_t Bilhete::getDataCompra() const {
   return this->dataCompra;
 }
+Cliente Bilhete::getCliente() const {
+  return this->cliente;
+}
 
 
 Bilhete Bilhete::setId(const std::string& newId) {
@@ -46,6 +49,10 @@ Bilhete Bilhete::setSessao(const Sessao& newSessao) {
 
 Bilhete Bilhete::setAssento(const Assento& newAssento) {
   this->assento = newAssento;
+  return*this;
+}
+Bilhete Bilhete::setCliente(const Cliente& newCliente) {
+  this->cliente = newCliente;
   return*this;
 }
 
