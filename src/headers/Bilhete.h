@@ -5,6 +5,7 @@
 #include "Assento.h"
 #include "Sessao.h"
 
+
 class Bilhete{
 
 public:
@@ -21,14 +22,18 @@ public:
   Bilhete setPreco(double);
   Bilhete setSessao(const Sessao&);
   Bilhete setAssento(const Assento&);
-  Bilhete setData(time_t);
+
+
+  Bilhete setDataCompra();
+  Bilhete setDataValidade();
 
 private:
   std::string id;
   double preco;
   Sessao sessao;
   Assento assento;
-  time_t data;
+  time_t dataCompra;
+  time_t dataValidade;
 };
 
 #endif
