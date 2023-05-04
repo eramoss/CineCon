@@ -16,7 +16,8 @@ public:
   double getPreco() const;
   Sessao getSessao() const;
   Assento getAssento() const;
-  time_t getData() const;
+  time_t getDataCompra() const;
+  time_t getDataValidade() const;
 
   Bilhete setId(const std::string&);
   Bilhete setPreco(double);
