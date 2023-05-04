@@ -1,5 +1,5 @@
 #include "../headers/Bilhete.h"
-#include "../headers/dataMacro.h"
+
 
 Bilhete::Bilhete(){
 
@@ -51,10 +51,12 @@ Bilhete Bilhete::setAssento(const Assento& newAssento) {
 
 
 Bilhete Bilhete::Bilhete::setDataCompra(){
-this->dataCompra = time(NULL);
+  this->dataCompra = time(NULL);
+  return*this;
 }
 
 Bilhete Bilhete::Bilhete::setDataValidade(){
   time_t dataFilme = this->sessao.getFilme().getData();
   this->dataValidade = dataFilme;
+  return*this;
 }
