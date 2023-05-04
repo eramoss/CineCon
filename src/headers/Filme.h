@@ -2,6 +2,13 @@
 #define FILME_H
 #include <string>
 
+struct DataFilmeParams {
+  int hora;
+  int minuto;
+  int dia;
+  int mes;
+  int ano;
+};
 class Filme{
 
 public:
@@ -16,7 +23,7 @@ public:
   Filme setNome(const std::string&);
   Filme setDublado(bool);
   Filme set3D(bool);
-  Filme setData(time_t);
+  Filme setData(const DataFilmeParams&);
 
 private:
   std::string nome;
