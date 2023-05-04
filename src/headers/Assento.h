@@ -10,7 +10,7 @@ public:
   std::string getId() const;
   bool isReservado() const;
 
-  Assento setId(std::string);
+  Assento setId(const std::string&);
   Assento setReservado(bool);
 
   private:

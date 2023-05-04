@@ -17,11 +17,11 @@ public:
   Assento getAssento() const;
   time_t getData() const;
 
-  Bilhete setId(std::string);
+  Bilhete setId(const std::string&);
   Bilhete setPreco(double);
-  Bilhete setSessao(Sessao);
-  Bilhete setAssento(Assento);
-  Bilhete setData(std::string);
+  Bilhete setSessao(const Sessao&);
+  Bilhete setAssento(const Assento&);
+  Bilhete setData(time_t);
 
 private:
   std::string id;
