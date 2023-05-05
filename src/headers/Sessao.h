@@ -22,11 +22,15 @@ public:
 
   void rmvAssentoDisp(const std::string &id);
   void addAssentoDisp(const std::string &id);
+  Assento findAssento(const std::string &id);
+  void addAssentoReservado(const std::string & id);
+  void rmvAssentoReservado(const std::string & id);
 
 private:
   Filme filme;
   Sala sala;
   std::vector<Assento> assentosDisponiveis;
+  std::vector<Assento> assentosReservados;
 };
 
 

@@ -1,4 +1,5 @@
 #include "../headers/Bilhete.h"
+#include <iostream>
 
 
 Bilhete::Bilhete(){
@@ -60,7 +61,13 @@ Bilhete Bilhete::setSessao(const Sessao& newSessao) {
   return*this;
 }
 
-Bilhete Bilhete::setAssento(const Assento& newAssento) {
+Bilhete Bilhete::setAssento(Assento& newAssento) {
+  if (newAssento.isReservado()){
+    std::cout << "ERROR: na função setAssento, assento já reservado" << std::endl;
+    return*this;
+  }
+  newAssento.setReservado(true);
+  this->sessao.addAssentoReservado(newAssento.getId());
   this->assento = newAssento;
   return*this;
 }
