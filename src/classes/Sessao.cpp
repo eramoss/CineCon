@@ -1,8 +1,11 @@
 #include "../headers/Sessao.h"
 
 Sessao::Sessao() {}
+Sessao::Sessao(const Filme &filme,const Sala &sala): filme(filme), sala(sala), assentosDisponiveis(sala.getAssentos()) {}
 
-Sessao::~Sessao() {}
+
+Sessao::~Sessao(){
+}
 
 Filme Sessao::getFilme() const {
     return this->filme;

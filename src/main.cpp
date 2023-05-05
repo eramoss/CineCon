@@ -17,6 +17,17 @@ int main(int argc, char const *argv[])
   const time_t t = filme->getData();
   filme->setNome("Wall-e");
 
-  std::cout << "o filme " << filme->getNome() << " vai passar: "  << asctime(localtime(&t));
+
+  Sala * sala = new Sala();
+  Sessao * sessao = new Sessao();
+
+  sessao->setFilme(*filme);
+  Bilhete * bilhete = new Bilhete();
+  bilhete->setSessao(*sessao);
+
+
+
+
+  std::cout << "o filme " << bilhete->getSessao().getFilme().getNome() << " vai passar: "  << asctime(localtime(&t));
   return 0;
 }

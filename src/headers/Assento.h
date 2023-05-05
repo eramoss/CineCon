@@ -4,7 +4,8 @@
 class Assento{
 
 public:
-  Assento(/* args */);
+  Assento();
+  Assento(const std::string& id,bool reservado);
   ~Assento();
 
   std::string getId() const;
@@ -15,7 +16,7 @@ public:
 
   private:
     std::string id;
-    bool Reservado;
+    bool reservado;
 };
 
 

@@ -7,7 +7,8 @@
 class Sala{
 
 public:
-  Sala(/* args */);
+  Sala();
+  Sala(const std::string& id,int totalAssentos);
   ~Sala();
 
 /*getters*/

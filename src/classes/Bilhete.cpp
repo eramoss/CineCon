@@ -4,6 +4,16 @@
 Bilhete::Bilhete(){
 
 }
+Bilhete::Bilhete(const std::string& id,bool isMeio,double preco,const Sessao& sessao,const Assento& assento,const Cliente& cliente):sessao(sessao),assento(assento),cliente(cliente){ 
+  this->id = id;
+  this->isMeio = isMeio;
+  this->preco = preco;
+  this->dataCompra = time(NULL);
+  this->dataValidade = this->getSessao().getFilme().getData();
+}
+
+Bilhete::~Bilhete(){}
+
 std::string Bilhete::getId() const {
   return this->id;
 }
@@ -30,6 +40,9 @@ time_t Bilhete::getDataCompra() const {
 Cliente Bilhete::getCliente() const {
   return this->cliente;
 }
+bool Bilhete::getIsMeio() const {
+  return this->isMeio;
+}
 
 
 Bilhete Bilhete::setId(const std::string& newId) {
@@ -53,6 +66,10 @@ Bilhete Bilhete::setAssento(const Assento& newAssento) {
 }
 Bilhete Bilhete::setCliente(const Cliente& newCliente) {
   this->cliente = newCliente;
+  return*this;
+}
+Bilhete Bilhete::setIsMeio(bool isMeio){
+  this->isMeio = isMeio;
   return*this;
 }
 

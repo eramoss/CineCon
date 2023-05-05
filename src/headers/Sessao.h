@@ -8,7 +8,8 @@
 class Sessao{
 
 public:
-  Sessao(/* args */);
+  Sessao();
+  Sessao(const Filme &filme,const Sala &sala);
   ~Sessao();
 
   Filme getFilme() const;

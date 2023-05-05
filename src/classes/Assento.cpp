@@ -1,6 +1,10 @@
 #include "../headers/Assento.h"
 
 Assento::Assento() {}
+Assento::Assento(const std::string& id,bool reservado) {
+    this->id = id;
+    this->reservado = reservado;
+}
 
 Assento::~Assento() {}
 
@@ -9,7 +13,7 @@ std::string Assento::getId() const {
 }
 
 bool Assento::isReservado() const {
-    return this->Reservado;
+    return this->reservado;
 }
 
 Assento Assento::setId(const std::string& newId) {
@@ -18,6 +22,6 @@ Assento Assento::setId(const std::string& newId) {
 }
 
 Assento Assento::setReservado(bool newReservado) {
-    this->Reservado = newReservado;
+    this->reservado = newReservado;
     return *this;
 }

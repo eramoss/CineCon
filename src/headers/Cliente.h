@@ -6,24 +6,26 @@
 class Cliente{
 
 public:
-  Cliente(/* args */);
+  Cliente();
+  Cliente(const std::string& id,const std::string& nome,bool PCD,int idade);
   ~Cliente();
 
   std::string getId() const;
   std::string getNome() const;
   bool getPCD() const;
-  bool getMeio() const;
+  int getIdade() const;
 
   Cliente setId(const std::string&);
   Cliente setNome(const std::string&);
   Cliente setPCD(bool);
-  Cliente setMeio(bool);
+  Cliente setIdade(int);
 
 private:
   std::string id;
   std::string nome;
+  int idade;
   bool PCD;
-  bool isMeio;
+
 };
 
 #endif

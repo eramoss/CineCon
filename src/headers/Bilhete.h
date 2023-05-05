@@ -10,7 +10,8 @@
 class Bilhete{
 
 public:
-  Bilhete(/* args */);
+  Bilhete(const std::string& id,bool isMeio,double preco,const Sessao& sessao,const Assento& assento,const Cliente& cliente);
+  Bilhete();
   ~Bilhete();
 
   std::string getId() const;
@@ -20,12 +21,14 @@ public:
   time_t getDataCompra() const;
   time_t getDataValidade() const;
   Cliente getCliente() const;
+  bool getIsMeio() const;
 
   Bilhete setId(const std::string&);
   Bilhete setPreco(double);
   Bilhete setSessao(const Sessao&);
   Bilhete setAssento(const Assento&);
   Bilhete setCliente(const Cliente&);
+  Bilhete setIsMeio(bool);
 
 
   Bilhete setDataCompra();
@@ -33,6 +36,7 @@ public:
 
 private:
   std::string id;
+  bool isMeio;
   double preco;
   Sessao sessao;
   Assento assento;

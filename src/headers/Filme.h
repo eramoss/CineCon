@@ -12,7 +12,8 @@ struct DataFilmeParams {
 class Filme{
 
 public:
-  Filme(/* args */);
+  Filme(const std::string& nome, bool isDublado, bool is3d,const DataFilmeParams& data);
+  Filme();
   ~Filme();
 
   std::string getNome() const;

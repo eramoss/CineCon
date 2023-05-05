@@ -14,7 +14,18 @@ Filme Filme::setData(const DataFilmeParams & params){
 }
 
 
-Filme::Filme() {}
+Filme::Filme(){
+
+}
+
+
+Filme::Filme(const std::string& nome, bool isDublado, bool is3d, const DataFilmeParams& data){
+    this->nome = nome;
+    this->isDublado = isDublado;
+    this->is3D = is3d;
+    setData(data);
+}
+
 
 Filme::~Filme() {}
 
