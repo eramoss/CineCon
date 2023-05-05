@@ -20,6 +20,9 @@ public:
   Sessao setSala(const Sala &);
   Sessao setAssentosDisp(const std::vector<Assento> &);
 
+  void rmvAssentoDisp(const std::string &id);
+  void addAssentoDisp(const std::string &id);
+
 private:
   Filme filme;
   Sala sala;
