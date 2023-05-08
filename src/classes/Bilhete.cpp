@@ -61,16 +61,16 @@ Bilhete& Bilhete::setSessao(const Sessao& newSessao) {
   return*this;
 }
 
-Bilhete& Bilhete::setAssento(Assento& newAssento) {
-  if (newAssento.isReservado()){
+Bilhete& Bilhete::setAssento( Assento * const & newAssento) {
+  if (newAssento->isReservado()){
     std::cout << "ERROR: na função setAssento, assento já reservado" << std::endl;
     return*this;
   }
-  newAssento.setReservado(true);
-  this->sessao.addAssentoReservado(newAssento.getId());
-  this->assento = newAssento;
+  newAssento->setReservado(true);
+  this->assento = *newAssento;
   return*this;
 }
+
 Bilhete& Bilhete::setCliente(const Cliente& newCliente) {
   this->cliente = newCliente;
   return*this;

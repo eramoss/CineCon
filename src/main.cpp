@@ -24,15 +24,17 @@ int main(int argc, char const *argv[])
   sessao->addAssentoDisp("0");
   Bilhete * bilhete = new Bilhete();
   bilhete->setSessao(*sessao);
-  Assento a = sessao->findAssento("1");
+  
+  const Assento &temp = sessao->findAssento("1");
+  Assento * a = const_cast<Assento *>(&temp);
   bilhete->setAssento(a);
+  sessao->addAssentoReservado("1");
   Bilhete * bilhete1 = new Bilhete();
   bilhete1->setSessao(*sessao);
-  bilhete1->setAssento(a);
 
 
 
 
-  std::cout << "o filme " << bilhete->getSessao().getFilme().getNome() << " vai passar: "  << asctime(localtime(&t)) << "na sala: " << bilhete->getSessao().getSala().getId() << "\nE seu assento é: " << bilhete1->getAssento().getId() << "\n";
+  std::cout << "o filme " << bilhete->getSessao().getFilme().getNome() << " vai passar: "  << asctime(localtime(&t)) << "na sala: " << bilhete->getSessao().getSala().getId() << "\nE seu assento é: " << bilhete->getAssento().isReservado() << "\n";
   return 0;
 }

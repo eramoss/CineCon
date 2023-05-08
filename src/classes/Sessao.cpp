@@ -1,5 +1,6 @@
 #include "../headers/Sessao.h"
 #include <iostream>
+#include <assert.h>
 
 Sessao::Sessao() {}
 Sessao::Sessao(const Filme &filme,const Sala &sala): filme(filme), sala(sala), assentosDisponiveis(sala.getAssentos().size()) {
@@ -43,8 +44,6 @@ Sessao& Sessao::setAssentosDisp(const std::vector<Assento>& newAssentosDisponive
 void Sessao::rmvAssentoDisp(const std::string & id){
     for(std::size_t i = 0; i < this->assentosDisponiveis.size(); i++) {
         if(this->assentosDisponiveis[i].getId() == id){
-            this->assentosDisponiveis[i].setReservado(true);
-            this->assentosReservados.push_back(this->assentosDisponiveis[i]);
             this->assentosDisponiveis.erase(this->assentosDisponiveis.begin() + i);
         }
     }
@@ -63,6 +62,7 @@ void Sessao::addAssentoDisp(const std::string & id){
     }
     for (std::size_t i = 0; i < this->assentosReservados.size(); i++) {
         if(id == this->assentosReservados[i].getId()){
+            this->assentosReservados[i].setReservado(false);
             assentosDisponiveis.push_back(this->assentosReservados[i]);
             rmvAssentoReservado(id);
         }
@@ -76,15 +76,13 @@ Assento Sessao::findAssento(const std::string& id){
             return this->assentosDisponiveis[i];
         }
     }
-    std::cout << "ERROR: assento não encontrado no uso da função \"findAssento\"" << std::endl;
+    throw std::invalid_argument("ERROR: assento não encontrado no uso da função \"findAssento\" Assento não está na lista de disponiveis");
     return Assento();
 }
 
 void Sessao::rmvAssentoReservado(const std::string & id){
     for(std::size_t i = 0; i < this->assentosReservados.size(); i++) {
         if(this->assentosReservados[i].getId() == id){
-            this->assentosReservados[i].setReservado(false);
-            this->assentosDisponiveis.push_back(this->assentosReservados[i]);
             this->assentosReservados.erase(this->assentosReservados.begin() + i);
         }
     }
@@ -103,8 +101,10 @@ void Sessao::addAssentoReservado(const std::string & id){
     }
     for (std::size_t i = 0; i < this->assentosDisponiveis.size(); i++) {
         if(id == this->assentosDisponiveis[i].getId()){
+            this->assentosDisponiveis[i].setReservado(true);
             assentosReservados.push_back(this->assentosDisponiveis[i]);
             rmvAssentoDisp(id);
+            return;
         }
     }  
 }
