@@ -1,6 +1,7 @@
 #include "../headers/Sessao.h"
 #include <iostream>
 #include <assert.h>
+#include <fmtmsg.h>
 
 Sessao::Sessao() {}
 Sessao::Sessao(const Filme &filme,const Sala &sala): filme(filme), sala(sala), assentosDisponiveis(sala.getAssentos().size()) {
@@ -76,7 +77,8 @@ Assento Sessao::findAssento(const std::string& id){
             return *it;
         }
     }
-    std::__throw_runtime_error("ERROR: assento não encontrado no uso da função \"findAssento\" Assento não está na lista de disponiveis");
+    std::string errorMassage = "ERROR: assento não encontrado no uso da função \"findAssento\" Assento " + id + " não está na lista de disponiveis";
+    std::__throw_runtime_error(errorMassage.c_str());
     return Assento();
 }
 
