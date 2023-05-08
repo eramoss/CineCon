@@ -1,5 +1,10 @@
 #include "../headers/Filme.h"
 
+/*
+@param sequência Hora, Minuto, Dia, Mes, Ano;
+@param exemplo setData({15 ,30 ,2 ,6 ,2023});
+@param significado isso significa que este filme passará às 3 e 30 da tarde no dia 2 do 6 em 2023
+*/
 Filme& Filme::setData(const DataFilmeParams & params){
     struct tm newTime;
     newTime.tm_hour = params.hora;
