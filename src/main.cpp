@@ -33,6 +33,6 @@ int main(int argc, char const *argv[])
 
 
 
-  std::cout << "o filme " << bilhete->getSessao().getFilme().getNome() << " vai passar: "  << asctime(localtime(&t)) << "na sala: " << bilhete->getSessao().getSala().getId() << "\nE seu assento é: " << bilhete->getAssento().isReservado() << "\n";
+  std::cout << "o filme " << bilhete->getSessao().getFilme().getNome() << " vai passar: "  << asctime(localtime(&t)) << "na sala: " << bilhete->getSessao().getSala().getId() << "\nE seu assento é: " << bilhete->getAssento().isReservado()  << "\n";
   return 0;
 }
