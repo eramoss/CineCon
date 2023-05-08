@@ -20,15 +20,22 @@ int main(int argc, char const *argv[])
 
   Sala * sala = new Sala("a1", 12);
   Sessao * sessao = new Sessao(*filme,*sala);
-  Cliente * cliente = new Cliente("564623546","Jhon Doe",false,15);
-  Bilhete * bilhe = new Bilhete("4564-fsda-342g-4sda",40.32,*sessao,sessao->findAssento("1"),*cliente);
+  Cliente * cliente = new Cliente("564623546","Jhon Doe",true,18);
+
+
+  Bilhete * bilhe = new Bilhete("4564-f3da-342g-4sda",40.32,*sessao,"1",*cliente);
+  
   if (bilhe->getIsMeio()){
     bilhe->setPreco(bilhe->getPreco()/2);
   }
 
+  Bilhete * bilhe1 = new Bilhete("4564-f3da-342g-4sde",40.32,*sessao,"1",*cliente);
+  
+  std::cout << bilhe1->getAssento().getId() << std::endl;
 
+  std::cout << "O filme " <<bilhe->getSessao().getFilme().getNome() << " vai passar: "  << asctime(localtime(&t)) << "Na sala: " <<bilhe->getSessao().getSala().getId() << "\nE seu assento é: " <<bilhe->getAssento().getId()  << "\n\n" <<"o bilhete custou: " << bilhe->getPreco();
 
-  std::cout << "N filme " <<bilhe->getSessao().getFilme().getNome() << " vai passar: "  << asctime(localtime(&t)) << "Na sala: " <<bilhe->getSessao().getSala().getId() << "\nE seu assento é: " <<bilhe->getAssento().getId()  << "\n" <<"o bilhete custou: " << bilhe->getPreco() << "\n";
-  if ( bilhe->getIsMeio()) std::cout << "Por que o Cliente: " << cliente->getNome() << "\nCom Id: " << cliente->getId() << "\n" << "Paga metade do ingresso\n";
+  bilhe->getIsMeio() ? std::cout << ". Por que o Cliente: " << bilhe->getCliente().getNome() << "\nCom Id: " << bilhe->getCliente().getId() << "\n" << "Paga metade do ingresso\n" : std::cout << std::endl;
+
   return 0;
 }
