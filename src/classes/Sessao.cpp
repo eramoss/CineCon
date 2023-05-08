@@ -42,9 +42,9 @@ Sessao& Sessao::setAssentosDisp(const std::vector<Assento>& newAssentosDisponive
 
 
 void Sessao::rmvAssentoDisp(const std::string & id){
-    for(std::size_t i = 0; i < this->assentosDisponiveis.size(); i++) {
-        if(this->assentosDisponiveis[i].getId() == id){
-            this->assentosDisponiveis.erase(this->assentosDisponiveis.begin() + i);
+    for(auto it = assentosDisponiveis.begin(); it != assentosDisponiveis.end(); it++) {
+        if(it->getId() == id){
+            this->assentosDisponiveis.erase(it);
         }
     }
 }
@@ -54,16 +54,16 @@ void Sessao::addAssentoDisp(const std::string & id){
         std::__throw_runtime_error("Assentos Disponiveis cheio, não pode inserir mais\n");
         return;
     }
-    for(std::size_t i = 0; i < this->assentosDisponiveis.size(); i++) {
-        if(id == this->assentosDisponiveis[i].getId()){
+    for(auto it = this->assentosDisponiveis.begin(); it != this->assentosDisponiveis.end() ; it++) {
+        if(id == it->getId()){
             std::__throw_runtime_error("já existe um assento com esse id\n");
             return;
         }
     }
-    for (std::size_t i = 0; i < this->assentosReservados.size(); i++) {
-        if(id == this->assentosReservados[i].getId()){
-            this->assentosReservados[i].setReservado(false);
-            assentosDisponiveis.push_back(this->assentosReservados[i]);
+    for (auto it = this->assentosReservados.begin() ; it != this->assentosReservados.end() ; it++) {
+        if(id == it->getId()){
+            it->setReservado(false);
+            assentosDisponiveis.push_back(*it);
             rmvAssentoReservado(id);
         }
     }  
@@ -71,9 +71,9 @@ void Sessao::addAssentoDisp(const std::string & id){
 }
 
 Assento Sessao::findAssento(const std::string& id){
-    for(std::size_t i = 0; i < this->assentosDisponiveis.size(); i++) {
-        if(this->assentosDisponiveis[i].getId() == id){
-            return this->assentosDisponiveis[i];
+    for(auto it = this->assentosDisponiveis.begin(); it != this->assentosDisponiveis.end(); it++) {
+        if(it->getId() == id){
+            return *it;
         }
     }
     std::__throw_runtime_error("ERROR: assento não encontrado no uso da função \"findAssento\" Assento não está na lista de disponiveis");
@@ -81,9 +81,9 @@ Assento Sessao::findAssento(const std::string& id){
 }
 
 void Sessao::rmvAssentoReservado(const std::string & id){
-    for(std::size_t i = 0; i < this->assentosReservados.size(); i++) {
-        if(this->assentosReservados[i].getId() == id){
-            this->assentosReservados.erase(this->assentosReservados.begin() + i);
+    for(auto it = this->assentosDisponiveis.begin(); it != this->assentosDisponiveis.end(); it++){
+        if(it->getId() == id){
+            this->assentosReservados.erase(it);
         }
     }
 }
@@ -93,16 +93,16 @@ void Sessao::addAssentoReservado(const std::string & id){
         std::__throw_runtime_error("Assentos Reservados cheio, não pode inserir mais\n");
         return;
     }
-    for(std::size_t i = 0; i < this->assentosReservados.size(); i++) {
-        if(id == this->assentosReservados[i].getId()){
+    for(auto it = this->assentosReservados.begin(); it != this->assentosReservados.end(); ++it) {
+        if(id == it->getId()){
             std::__throw_runtime_error("já existe um assento com esse id reservado\n");
             return;
         }
     }
-    for (std::size_t i = 0; i < this->assentosDisponiveis.size(); i++) {
-        if(id == this->assentosDisponiveis[i].getId()){
-            this->assentosDisponiveis[i].setReservado(true);
-            assentosReservados.push_back(this->assentosDisponiveis[i]);
+    for (auto it = this->assentosDisponiveis.begin(); it != this->assentosDisponiveis.end(); ++it) {
+        if(id == it->getId()){
+            it->setReservado(true);
+            assentosReservados.push_back(*it);
             rmvAssentoDisp(id);
             return;
         }

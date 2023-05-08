@@ -17,7 +17,7 @@ std::string Sala::getId() const {
     return this->id;
 }
 
-int Sala::getTotalAssentos() const {
+unsigned int Sala::getTotalAssentos() const {
     return this->totalAssentos;
 }
 

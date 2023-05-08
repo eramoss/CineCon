@@ -13,7 +13,7 @@ public:
 
 /*getters*/
   std::string getId() const;
-  int getTotalAssentos() const;
+  unsigned int getTotalAssentos() const;
   std::vector<Assento> getAssentos() const;
 
 
@@ -24,7 +24,7 @@ public:
   
 private:
   std::string id;
-  int totalAssentos;
+  unsigned int totalAssentos;
   std::vector<Assento> assentos;
 };
 
