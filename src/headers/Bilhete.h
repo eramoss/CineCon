@@ -26,7 +26,7 @@ public:
   Bilhete& setId(const std::string&);
   Bilhete& setPreco(double);
   Bilhete& setSessao(const Sessao&);
-  Bilhete& setAssento(Assento * const &);
+  Bilhete& setAssento(const Assento&);
   Bilhete& setCliente(const Cliente&);
   Bilhete& setIsMeio(bool);
 

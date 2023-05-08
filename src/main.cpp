@@ -25,9 +25,7 @@ int main(int argc, char const *argv[])
   Bilhete * bilhete = new Bilhete();
   bilhete->setSessao(*sessao);
   
-  const Assento &temp = sessao->findAssento("1");
-  Assento * a = const_cast<Assento *>(&temp);
-  bilhete->setAssento(a);
+  bilhete->setAssento(sessao->findAssento("1"));
   sessao->addAssentoReservado("1");
   Bilhete * bilhete1 = new Bilhete();
   bilhete1->setSessao(*sessao);
