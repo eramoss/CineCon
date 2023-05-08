@@ -14,28 +14,40 @@ int main(int argc, char const *argv[])
   };
   
   filme->setData(data);
-  const time_t t = filme->getData();
   filme->setNome("Wall-e");
+  Filme * filme1 = new Filme();
+  struct DataFilmeParams data1 = {
+    /*hora: */ 16,
+    /*minuto: */ 30,
+    /*dia: */ 6,
+    /*mês: */ 5,
+    /*ano: */ 2023,
+  };
+  
+  filme1->setData(data1);
+  filme1->setNome("Wall-e");
+    Filme * filme2 = new Filme();
+  struct DataFilmeParams data2 = {
+    /*hora: */ 17,
+    /*minuto: */ 30,
+    /*dia: */ 6,
+    /*mês: */ 5,
+    /*ano: */ 2023,
+  };
+  
+  filme1->setData(data2);
+  filme1->setNome("Wall-e");
 
 
   Sala * sala = new Sala("a1", 12);
+  Sala * sala1 = new Sala("a2", 12);
   Sessao * sessao = new Sessao(*filme,*sala);
-  Cliente * cliente = new Cliente("564623546","Jhon Doe",true,18);
+  Sessao * sessao1 = new Sessao(*filme1,*sala);
+  Sessao * sessao2 = new Sessao(*filme, *sala1);
 
-
-  Bilhete * bilhe = new Bilhete("4564-f3da-342g-4sda",40.32,*sessao,"1",*cliente);
-  
-  if (bilhe->getIsMeio()){
-    bilhe->setPreco(bilhe->getPreco()/2);
-  }
-
-  Bilhete * bilhe1 = new Bilhete("4564-f3da-342g-4sde",40.32,*sessao,"1",*cliente);
-  
-  std::cout << bilhe1->getAssento().getId() << std::endl;
-
-  std::cout << "O filme " <<bilhe->getSessao().getFilme().getNome() << " vai passar: "  << asctime(localtime(&t)) << "Na sala: " <<bilhe->getSessao().getSala().getId() << "\nE seu assento é: " <<bilhe->getAssento().getId()  << "\n\n" <<"o bilhete custou: " << bilhe->getPreco();
-
-  bilhe->getIsMeio() ? std::cout << ". Por que o Cliente: " << bilhe->getCliente().getNome() << "\nCom Id: " << bilhe->getCliente().getId() << "\n" << "Paga metade do ingresso\n" : std::cout << std::endl;
-
+  ListaSessao * ls = new ListaSessao();
+  ls->addSessao(*sessao);
+  ls->addSessao(*sessao1);
+  ls->addSessao(*sessao2);
   return 0;
 }
