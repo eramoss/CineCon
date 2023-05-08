@@ -64,7 +64,7 @@ Bilhete& Bilhete::setSessao(const Sessao& newSessao) {
 Bilhete& Bilhete::setAssento( const  Assento & newAssento) {
   Assento * assento = const_cast<Assento *>(&newAssento);
   if (assento->isReservado()){
-    std::cout << "ERROR: na função setAssento, assento já reservado" << std::endl;
+    std::__throw_runtime_error("ERROR: na função setAssento, assento já reservado");
     return*this;
   }
   assento->setReservado(true);
