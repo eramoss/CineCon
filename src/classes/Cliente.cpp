@@ -26,22 +26,22 @@ int Cliente::getIdade() const {
   return this->idade;
 }
 
-Cliente Cliente::setId(const std::string& newId) {
+Cliente& Cliente::setId(const std::string& newId) {
   this->id = newId;
   return *this;
 }
 
-Cliente Cliente::setNome(const std::string& newNome) {
+Cliente& Cliente::setNome(const std::string& newNome) {
   this->nome = newNome;
   return *this;
 }
 
-Cliente Cliente::setPCD(bool newPCD) {
+Cliente& Cliente::setPCD(bool newPCD) {
   this->PCD = newPCD;
   return *this;
 }
 
-Cliente Cliente::setIdade(int idade) {
+Cliente& Cliente::setIdade(int idade) {
   this->idade = idade;
   return *this;
 }

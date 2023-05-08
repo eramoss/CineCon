@@ -24,17 +24,17 @@ std::vector<Assento> Sessao::getAssentoDisp() const {
     return this->assentosDisponiveis;
 }
 
-Sessao Sessao::setFilme(const Filme& newFilme) {
+Sessao& Sessao::setFilme(const Filme& newFilme) {
     this->filme = newFilme;
     return *this;
 }
 
-Sessao Sessao::setSala(const Sala& newSala) {
+Sessao& Sessao::setSala(const Sala& newSala) {
     this->sala = newSala;
     return *this;
 }
 
-Sessao Sessao::setAssentosDisp(const std::vector<Assento>& newAssentosDisponiveis) {
+Sessao& Sessao::setAssentosDisp(const std::vector<Assento>& newAssentosDisponiveis) {
     this->assentosDisponiveis = newAssentosDisponiveis;
     return *this;
 }

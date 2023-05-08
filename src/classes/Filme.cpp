@@ -1,6 +1,6 @@
 #include "../headers/Filme.h"
 
-Filme Filme::setData(const DataFilmeParams & params){
+Filme& Filme::setData(const DataFilmeParams & params){
     struct tm newTime;
     newTime.tm_hour = params.hora;
     newTime.tm_min = params.minuto;
@@ -46,17 +46,17 @@ time_t Filme::getData() const {
 }
 
 
-Filme Filme::setNome(const std::string& newNome) {
+Filme& Filme::setNome(const std::string& newNome) {
     this->nome = newNome;
     return *this;
 }
 
-Filme Filme::setDublado(bool newDublado) {
+Filme& Filme::setDublado(bool newDublado) {
     this->isDublado = newDublado;
     return *this;
 }
 
-Filme Filme::set3D(bool new3D) {
+Filme& Filme::set3D(bool new3D) {
     this->is3D = new3D;
     return *this;
 }

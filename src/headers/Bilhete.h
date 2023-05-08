@@ -23,16 +23,16 @@ public:
   Cliente getCliente() const;
   bool getIsMeio() const;
 
-  Bilhete setId(const std::string&);
-  Bilhete setPreco(double);
-  Bilhete setSessao(const Sessao&);
-  Bilhete setAssento( Assento&);
-  Bilhete setCliente(const Cliente&);
-  Bilhete setIsMeio(bool);
+  Bilhete& setId(const std::string&);
+  Bilhete& setPreco(double);
+  Bilhete& setSessao(const Sessao&);
+  Bilhete& setAssento( Assento&);
+  Bilhete& setCliente(const Cliente&);
+  Bilhete& setIsMeio(bool);
 
 
-  Bilhete setDataCompra();
-  Bilhete setDataValidade();
+  Bilhete& setDataCompra();
+  Bilhete& setDataValidade();
 
 private:
   std::string id;

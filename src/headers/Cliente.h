@@ -15,10 +15,10 @@ public:
   bool getPCD() const;
   int getIdade() const;
 
-  Cliente setId(const std::string&);
-  Cliente setNome(const std::string&);
-  Cliente setPCD(bool);
-  Cliente setIdade(int);
+  Cliente& setId(const std::string&);
+  Cliente& setNome(const std::string&);
+  Cliente& setPCD(bool);
+  Cliente& setIdade(int);
 
 private:
   std::string id;

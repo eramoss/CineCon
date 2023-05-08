@@ -46,22 +46,22 @@ bool Bilhete::getIsMeio() const {
 }
 
 
-Bilhete Bilhete::setId(const std::string& newId) {
+Bilhete& Bilhete::setId(const std::string& newId) {
   this->id = newId;
   return*this;
 }
 
-Bilhete Bilhete::setPreco(double newPreco) {
+Bilhete& Bilhete::setPreco(double newPreco) {
   this->preco = newPreco;
   return*this;
 }
 
-Bilhete Bilhete::setSessao(const Sessao& newSessao) {
+Bilhete& Bilhete::setSessao(const Sessao& newSessao) {
   this->sessao = newSessao;
   return*this;
 }
 
-Bilhete Bilhete::setAssento(Assento& newAssento) {
+Bilhete& Bilhete::setAssento(Assento& newAssento) {
   if (newAssento.isReservado()){
     std::cout << "ERROR: na função setAssento, assento já reservado" << std::endl;
     return*this;
@@ -71,22 +71,22 @@ Bilhete Bilhete::setAssento(Assento& newAssento) {
   this->assento = newAssento;
   return*this;
 }
-Bilhete Bilhete::setCliente(const Cliente& newCliente) {
+Bilhete& Bilhete::setCliente(const Cliente& newCliente) {
   this->cliente = newCliente;
   return*this;
 }
-Bilhete Bilhete::setIsMeio(bool isMeio){
+Bilhete& Bilhete::setIsMeio(bool isMeio){
   this->isMeio = isMeio;
   return*this;
 }
 
 
-Bilhete Bilhete::Bilhete::setDataCompra(){
+Bilhete& Bilhete::Bilhete::setDataCompra(){
   this->dataCompra = time(NULL);
   return*this;
 }
 
-Bilhete Bilhete::Bilhete::setDataValidade(){
+Bilhete& Bilhete::Bilhete::setDataValidade(){
   time_t dataFilme = this->sessao.getFilme().getData();
   this->dataValidade = dataFilme;
   return*this;

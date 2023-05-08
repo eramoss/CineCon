@@ -18,9 +18,9 @@ public:
 
 
 /*setters*/
-  Sala setId(const std::string&);
-  Sala setTotalAssentos(int);
-  Sala setAssentos(const std::vector<Assento>&);
+  Sala& setId(const std::string&);
+  Sala& setTotalAssentos(int);
+  Sala& setAssentos(const std::vector<Assento>&);
   
 private:
   std::string id;

@@ -21,10 +21,10 @@ public:
   bool get3D() const;
   time_t getData() const;
 
-  Filme setNome(const std::string&);
-  Filme setDublado(bool);
-  Filme set3D(bool);
-  Filme setData(const DataFilmeParams&);
+  Filme& setNome(const std::string&);
+  Filme& setDublado(bool);
+  Filme& set3D(bool);
+  Filme& setData(const DataFilmeParams&);
 
 private:
   std::string nome;

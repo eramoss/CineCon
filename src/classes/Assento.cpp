@@ -16,12 +16,12 @@ bool Assento::isReservado() const {
     return this->reservado;
 }
 
-Assento Assento::setId(const std::string& newId) {
+Assento& Assento::setId(const std::string& newId) {
     this->id = newId;
     return *this;
 }
 
-Assento Assento::setReservado(bool newReservado) {
+Assento& Assento::setReservado(bool newReservado) {
     this->reservado = newReservado;
     return *this;
 }

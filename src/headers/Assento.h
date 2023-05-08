@@ -11,8 +11,8 @@ public:
   std::string getId() const;
   bool isReservado() const;
 
-  Assento setId(const std::string&);
-  Assento setReservado(bool);
+  Assento& setId(const std::string&);
+  Assento& setReservado(bool);
 
   private:
     std::string id;

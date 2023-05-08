@@ -16,9 +16,9 @@ public:
   Sala getSala() const;
   std::vector<Assento> getAssentoDisp() const;
 
-  Sessao setFilme(const Filme &);
-  Sessao setSala(const Sala &);
-  Sessao setAssentosDisp(const std::vector<Assento> &);
+  Sessao& setFilme(const Filme &);
+  Sessao& setSala(const Sala &);
+  Sessao& setAssentosDisp(const std::vector<Assento> &);
 
   void rmvAssentoDisp(const std::string &id);
   void addAssentoDisp(const std::string &id);
