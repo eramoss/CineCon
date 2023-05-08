@@ -5,9 +5,13 @@
 Bilhete::Bilhete(){
 
 }
-Bilhete::Bilhete(const std::string& id,bool isMeio,double preco,const Sessao& sessao,const Assento& assento,const Cliente& cliente):sessao(sessao),assento(assento),cliente(cliente){ 
+Bilhete::Bilhete(const std::string& id,double preco,const Sessao& sessao,const Assento& assento,const Cliente& cliente):sessao(sessao),assento(assento),cliente(cliente){ 
+  if (this->cliente.getPCD() == true || this->cliente.getIdade() < 18){
+    this->isMeio = true;
+  }else {
+    this->isMeio = false;
+  }
   this->id = id;
-  this->isMeio = isMeio;
   this->preco = preco;
   this->dataCompra = time(NULL);
   this->dataValidade = this->getSessao().getFilme().getData();
