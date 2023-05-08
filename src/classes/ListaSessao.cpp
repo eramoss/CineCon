@@ -1,11 +1,22 @@
 #include "../headers/ListaSessao.h"
 #include <algorithm>
+#include <iostream>
 
 ListaSessao::ListaSessao() : sessoes() {}
 
 ListaSessao::~ListaSessao() {}
 
 void ListaSessao::addSessao(const Sessao& sessao) {
+  if(sessoes.size() == 0) {
+    sessoes.push_back(sessao);
+    return;
+  }
+  for ( auto it = sessoes.begin(); it != sessoes.end(); ++it){
+    if(sessao.getFilme().getData() == it->getFilme().getData() && sessao.getSala().getId() == it->getSala().getId()) {
+        std::__throw_invalid_argument("ERROR: na função \"addSessao\", sessão tem mesmo horário e está na mesma sala de outra");  
+        return; 
+    }
+  }
   sessoes.push_back(sessao);
 }
 
