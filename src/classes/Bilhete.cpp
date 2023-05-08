@@ -5,7 +5,7 @@
 Bilhete::Bilhete(){
 
 }
-Bilhete::Bilhete(const std::string& id,double preco,const Sessao& sessao,const Assento& assento,const Cliente& cliente):sessao(sessao),assento(assento),cliente(cliente){ 
+Bilhete::Bilhete(const std::string& id,double preco,const Sessao& sessao,const std::string& assentoId,const Cliente& cliente):sessao(sessao),cliente(cliente){ 
   if (this->cliente.getPCD() == true || this->cliente.getIdade() < 18){
     this->isMeio = true;
   }else {
@@ -15,6 +15,11 @@ Bilhete::Bilhete(const std::string& id,double preco,const Sessao& sessao,const A
   this->preco = preco;
   this->dataCompra = time(NULL);
   this->dataValidade = this->getSessao().getFilme().getData();
+
+  Sessao * s = const_cast<Sessao*>(&sessao);
+  const Assento& newAssento = s->findAssento(assentoId);
+  s->addAssentoReservado(assentoId);
+  setAssento(newAssento);
 }
 
 Bilhete::~Bilhete(){}

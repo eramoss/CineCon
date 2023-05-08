@@ -10,7 +10,7 @@
 class Bilhete{
 
 public:
-  Bilhete(const std::string& id,double preco,const Sessao& sessao,const Assento& assento,const Cliente& cliente);
+  Bilhete(const std::string& id,double preco,const Sessao& sessao,const std::string& assentoId,const Cliente& cliente);
   Bilhete();
   ~Bilhete();
 
