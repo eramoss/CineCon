@@ -12,7 +12,7 @@ struct DataFilmeParams {
 class Filme{
 
 public:
-  Filme(const std::string& nome, bool isDublado, bool is3d,unsigned int duracao,const DataFilmeParams& data);
+  Filme(const std::string& nome, bool isDublado, bool is3d,time_t duracao,const DataFilmeParams& data);
   Filme();
   ~Filme();
 
@@ -20,20 +20,20 @@ public:
   bool getDublado() const;
   bool get3D() const;
   time_t getData() const;
-  unsigned int getDuracao() const;
+  time_t getDuracao() const;
 
   Filme& setNome(const std::string&);
   Filme& setDublado(bool);
   Filme& set3D(bool);
   Filme& setData(const DataFilmeParams&);
-  Filme& setDuracao(unsigned int);
+  Filme& setDuracao(time_t);
 
 private:
   std::string nome;
   bool isDublado;
   bool is3D;
   time_t data;
-  unsigned int duracao;
+  time_t duracao;
 };
 
 
