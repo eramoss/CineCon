@@ -6,6 +6,11 @@ ListaCliente::ListaCliente(const std::vector<Cliente>& clientes) : clientes(clie
 ListaCliente::~ListaCliente() {}
 
 void ListaCliente::adicionarCliente(const Cliente& cliente) {
+  for (auto it = clientes.begin(); it != clientes.end(); ++it) {
+    if(it->getId() == cliente.getId()){
+      std::__throw_invalid_argument("ERROR: na função \"adicionarCliente\", tentativa de adcionar cliente com id de outro existente");
+    }
+  }
   clientes.push_back(cliente);
 }
 

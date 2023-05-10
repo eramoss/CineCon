@@ -5,6 +5,11 @@ ListaSala::ListaSala() {}
 ListaSala::~ListaSala() {}
 
 void ListaSala::addSala(const Sala &sala) {
+  for (auto it = salas.begin(); it != salas.end(); ++it) {
+    if (it->getId() == sala.getId()) {
+      std::__throw_invalid_argument("ERROR: na função \"addSala\", tentativa de adcionar nova sala com mesmo id de outra");
+    }
+  }
   salas.push_back(sala);
 }
 
