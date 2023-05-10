@@ -1,6 +1,7 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
 #include <string>
+#include "Bilhete.h"
 
 
 class Cliente{
@@ -19,12 +20,15 @@ public:
   Cliente& setNome(const std::string&);
   Cliente& setPCD(bool);
   Cliente& setIdade(int);
+  void AddCompra(const Bilhete&);
+  void rmvCompra(const std::string&);
 
 private:
   std::string id;
   std::string nome;
   int idade;
   bool PCD;
+  std::vector<Bilhete> listaCompras;
 
 };
 
