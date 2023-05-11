@@ -15,7 +15,10 @@
 #include "./headers/ListaFilme.h"
 #include "./headers/ListaSala.h"
 #include "./headers/ListaSessao.h"
+#include "./headers/ListaCompra.h"
 #include "./headers/Sala.h"
 #include "./headers/Sessao.h"
+#include "./headers/AdminCinema.h"
+#include "./headers/Pessoa.h"
 
 #endif // HEADER_INCLUDES_H
