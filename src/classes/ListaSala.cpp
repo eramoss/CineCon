@@ -13,10 +13,10 @@ void ListaSala::addSala(const Sala &sala) {
   salas.push_back(sala);
 }
 
-Sala ListaSala::findSala(const std::string &id) {
+Sala* ListaSala::findSala(const std::string &id) {
   for (Sala &sala : salas) {
     if (sala.getId() == id) {
-      return sala;
+      return &sala;
     }
   }
   std::__throw_invalid_argument("Sala não encontrada.");

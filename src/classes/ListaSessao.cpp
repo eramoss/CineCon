@@ -44,10 +44,10 @@ void ListaSessao::removeSessao(const std::string& id) {
   }), sessoes.end());
 }
 
-Sessao ListaSessao::findSessao(const std::string& id) const {
-  for (const Sessao& sessao : sessoes) {
+Sessao* ListaSessao::findSessao(const std::string& id)  {
+  for (Sessao& sessao : sessoes) {
     if (sessao.getId() == id) {
-      return sessao;
+      return &sessao;
     }
   }
   std::__throw_runtime_error("Session not found");

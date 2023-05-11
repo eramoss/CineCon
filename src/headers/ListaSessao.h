@@ -12,7 +12,7 @@ public:
 
   void addSessao(const Sessao& sessao);
   void removeSessao(const std::string& id);
-  Sessao findSessao(const std::string& id) const;
+  Sessao* findSessao(const std::string& id);
   std::vector<Sessao> getSessoes() const;
 
 private:

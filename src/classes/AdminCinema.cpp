@@ -12,3 +12,25 @@ void AdminCinema::deleteFilme(const std::string& id, ListaFilme & lista){
   lista.removerFilme(id);
   delete filme;
 }
+
+void AdminCinema::deleteSessao(const std::string& id, ListaSessao & lista){
+  Sessao * sessao = lista.findSessao(id);
+  lista.removeSessao(id);
+  delete sessao;
+}
+void AdminCinema::createSessao(const Filme &filme,const Sala &sala, const std::string & id, ListaSessao & lista){
+  Sessao * sessao = new Sessao(filme,sala,id);
+  lista.addSessao(*sessao);
+}
+
+void AdminCinema::createSala(const std::string& id,int totalAssentos, ListaSala & lista){
+  Sala * sala = new Sala(id,totalAssentos);
+  lista.addSala(*sala);
+}
+
+void AdminCinema::deleteSala(const std::string & id, ListaSala & lista){
+  Sala * sala = lista.findSala(id);
+  lista.removeSala(id);
+  delete sala;
+
+}
