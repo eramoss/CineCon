@@ -9,8 +9,8 @@ public:
   ~ListaFilme();
 
   void adicionarFilme(const Filme& filme);
-  void removerFilme(const std::string& nome);
-  Filme* buscarFilme(const std::string& nome);
+  void removerFilme(const std::string& id);
+  Filme* buscarFilme(const std::string& id);
 
 private:
   std::vector<Filme> filmes;
