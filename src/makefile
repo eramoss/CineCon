@@ -13,7 +13,8 @@ SOURCES=main.cpp \
         classes/ListaSessao.cpp \
         classes/Sala.cpp \
         classes/Sessao.cpp \
-        classes/ListaCompra.cpp
+        classes/ListaCompra.cpp \
+        classes/AdminCinema.cpp
 
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=CineCon
