@@ -24,11 +24,11 @@ void ListaSessao::addSessao(const Sessao& sessao) {
         return; 
     }
     if(sessao.getSala().getId() == it->getSala().getId()){
-      if(TERMINO_SESSAO >= INICIO_ITERATOR && INICIO_ITERATOR >= INICIO_SESSAO) {
+      if(TERMINO_SESSAO > INICIO_ITERATOR && INICIO_ITERATOR > INICIO_SESSAO) {
             std::string error_message = "Filme: "+ it->getFilme().getNome() + " tem inicio às: " +  std::to_string(localtime(&INICIO_ITERATOR)->tm_hour)  + ":" + std::to_string(localtime(&INICIO_ITERATOR)->tm_min) + ". E o filme inserido: " + sessao.getFilme().getNome() + " termina: " + std::to_string(localtime(&TERMINO_SESSAO)->tm_hour) + ":" + std::to_string(localtime(&TERMINO_SESSAO)->tm_min);             
             std::__throw_invalid_argument(error_message.c_str());
           }
-        if(TERMINO_ITERATOR >= INICIO_SESSAO && INICIO_SESSAO >= INICIO_ITERATOR){
+        if(TERMINO_ITERATOR > INICIO_SESSAO && INICIO_SESSAO > INICIO_ITERATOR){
             std::string error_message = "Filme: "+ it->getFilme().getNome() + " termina às: " +  std::to_string(localtime(&TERMINO_ITERATOR)->tm_hour)  + ":" + std::to_string(localtime(&TERMINO_ITERATOR)->tm_min) + ". E o filme inserido: " + sessao.getFilme().getNome() + " começa: " + std::to_string(localtime(&INICIO_SESSAO)->tm_hour) + ":" + std::to_string(localtime(&INICIO_SESSAO)->tm_min);             
             std::__throw_invalid_argument(error_message.c_str());
         }
