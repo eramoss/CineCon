@@ -3,6 +3,8 @@
 
 #include <string>
 #include "Pessoa.h"
+#include "Filme.h"
+#include "../headers/ListaFilme.h"
 
 class AdminCinema : public Pessoa {
 
@@ -17,6 +19,9 @@ public:
   void setSenha(const std::string& senha) {
     this->senha = senha;
   }
+  
+  bool createFilme(const std::string& id,const std::string& nome, bool isDublado, bool is3d,time_t duracao, const DataFilmeParams& data,ListaFilme & lista);
+  bool deleteFilme(const std::string& id,ListaFilme & lista);
 
 private:
   std::string senha;

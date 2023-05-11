@@ -24,7 +24,8 @@ Filme::Filme(){
 }
 
 
-Filme::Filme(const std::string& nome, bool isDublado, bool is3d,time_t duracao, const DataFilmeParams& data){
+Filme::Filme(const std::string& id,const std::string& nome, bool isDublado, bool is3d,time_t duracao, const DataFilmeParams& data){
+    this->id = id;
     this->nome = nome;
     this->isDublado = isDublado;
     this->is3D = is3d;
@@ -53,6 +54,9 @@ time_t Filme::getData() const {
 time_t Filme::getDuracao() const {
     return this->duracao;
 }
+std::string Filme::getId() const {
+    return this->id;
+}
 
 Filme& Filme::setNome(const std::string& newNome) {
     this->nome = newNome;
@@ -71,4 +75,7 @@ Filme& Filme::set3D(bool new3D) {
 Filme& Filme::setDuracao(time_t newDuracao) {
     this->duracao = newDuracao;
     return *this;
+}
+Filme& Filme::setId(const std::string& id) {
+    this->id = id;
 }

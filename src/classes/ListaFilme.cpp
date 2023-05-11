@@ -15,18 +15,18 @@ void ListaFilme::adicionarFilme(const Filme& filme) {
   filmes.push_back(filme);
 }
 
-void ListaFilme::removerFilme(const std::string& nome) {
+void ListaFilme::removerFilme(const std::string& id) {
   for (auto it = filmes.begin(); it != filmes.end(); ++it) {
-    if (it->getNome() == nome) {
+    if (it->getId() == id) {
       filmes.erase(it);
       break;
     }
   }
 }
 
-Filme* ListaFilme::buscarFilme(const std::string& nome) {
+Filme* ListaFilme::buscarFilme(const std::string& id) {
   for (auto it = filmes.begin(); it != filmes.end(); ++it) {
-    if (it->getNome() == nome) {
+    if (it->getId() == id) {
       return &(*it);
     }
   }
