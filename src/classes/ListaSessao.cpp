@@ -40,13 +40,13 @@ void ListaSessao::addSessao(const Sessao& sessao) {
 
 void ListaSessao::removeSessao(const std::string& id) {
   sessoes.erase(std::remove_if(sessoes.begin(), sessoes.end(), [id](const Sessao& sessao) {
-    return sessao.getSala().getId() == id;
+    return sessao.getId() == id;
   }), sessoes.end());
 }
 
 Sessao ListaSessao::findSessao(const std::string& id) const {
   for (const Sessao& sessao : sessoes) {
-    if (sessao.getSala().getId() == id) {
+    if (sessao.getId() == id) {
       return sessao;
     }
   }

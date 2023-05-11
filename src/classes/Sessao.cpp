@@ -4,7 +4,7 @@
 #include <fmtmsg.h>
 
 Sessao::Sessao() {}
-Sessao::Sessao(const Filme &filme,const Sala &sala): filme(filme), sala(sala), assentosDisponiveis(sala.getAssentos().size()) {
+Sessao::Sessao(const Filme &filme,const Sala &sala, std::string id): filme(filme), sala(sala), assentosDisponiveis(sala.getAssentos().size()), id(id){
     for (int i = 0; i < this->assentosDisponiveis.size(); i++) {
         assentosDisponiveis[i] = sala.getAssentos()[i];
     }
@@ -25,6 +25,9 @@ Sala Sessao::getSala() const {
 std::vector<Assento> Sessao::getAssentoDisp() const {
     return this->assentosDisponiveis;
 }
+std::string Sessao::getId() const {
+    return this->id;
+}
 
 Sessao& Sessao::setFilme(const Filme& newFilme) {
     this->filme = newFilme;
@@ -34,6 +37,9 @@ Sessao& Sessao::setFilme(const Filme& newFilme) {
 Sessao& Sessao::setSala(const Sala& newSala) {
     this->sala = newSala;
     return *this;
+}
+Sessao& Sessao::setId(const std::string& newId) {
+    this->id = newId;
 }
 
 Sessao& Sessao::setAssentosDisp(const std::vector<Assento>& newAssentosDisponiveis) {

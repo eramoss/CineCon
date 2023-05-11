@@ -9,16 +9,18 @@ class Sessao{
 
 public:
   Sessao();
-  Sessao(const Filme &filme,const Sala &sala);
+  Sessao(const Filme &filme,const Sala &sala, std::string id);
   ~Sessao();
 
   Filme getFilme() const;
   Sala getSala() const;
   std::vector<Assento> getAssentoDisp() const;
+  std::string getId() const;
 
   Sessao& setFilme(const Filme &);
   Sessao& setSala(const Sala &);
   Sessao& setAssentosDisp(const std::vector<Assento> &);
+  Sessao & setId(const std::string &);
 
   void rmvAssentoDisp(const std::string &id);
   void addAssentoDisp(const std::string &id);
@@ -27,6 +29,7 @@ public:
   void rmvAssentoReservado(const std::string & id);
 
 private:
+  std::string id;
   Filme filme;
   Sala sala;
   std::vector<Assento> assentosDisponiveis;
