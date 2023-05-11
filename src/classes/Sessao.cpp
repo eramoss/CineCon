@@ -40,6 +40,7 @@ Sessao& Sessao::setSala(const Sala& newSala) {
 }
 Sessao& Sessao::setId(const std::string& newId) {
     this->id = newId;
+    return *this;
 }
 
 Sessao& Sessao::setAssentosDisp(const std::vector<Assento>& newAssentosDisponiveis) {

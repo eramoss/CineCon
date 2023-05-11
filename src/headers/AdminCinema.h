@@ -4,9 +4,9 @@
 #include <string>
 #include "Pessoa.h"
 #include "Filme.h"
-#include "../headers/ListaFilme.h"
-#include "../headers/ListaSessao.h"
-#include "../headers/ListaSala.h"
+#include "ListaFilme.h"
+#include "ListaSessao.h"
+#include "ListaSala.h"
 
 class AdminCinema : public Pessoa {
 
@@ -23,12 +23,15 @@ public:
   }
   
   void createFilme(const std::string& id,const std::string& nome, bool isDublado, bool is3d,time_t duracao, const DataFilmeParams& data,ListaFilme & lista);
+  void createFilme(Filme & filme,ListaFilme & lista);
   void deleteFilme(const std::string& id,ListaFilme & lista);
 
   void createSessao(const Filme &filme,const Sala &sala, const std::string & id,ListaSessao & lista);
+  void createSessao(Sessao & sessao,ListaSessao & lista);
   void deleteSessao(const std::string& id, ListaSessao & lista);
 
   void createSala(const std::string& id,int totalAssentos, ListaSala & lista);
+  void createSala(Sala & sala, ListaSala & lista);
   void deleteSala(const std::string& id,ListaSala & lista);
 
 private:

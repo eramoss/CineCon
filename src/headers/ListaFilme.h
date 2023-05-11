@@ -1,3 +1,6 @@
+#ifndef LISTA_FILME_H
+#define LISTA_FILME_H
+
 #include "Filme.h"
 #include <ctime>
 #include <vector>
@@ -15,3 +18,5 @@ public:
 private:
   std::vector<Filme> filmes;
 };
+
+#endif

@@ -78,4 +78,5 @@ Filme& Filme::setDuracao(time_t newDuracao) {
 }
 Filme& Filme::setId(const std::string& id) {
     this->id = id;
+    return *this;
 }
