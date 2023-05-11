@@ -24,6 +24,9 @@ bool Cliente::getPCD() const {
 int Cliente::getIdade() const {
   return this->idade;
 }
+ListaCompra Cliente::getListaCompra() const {
+  return this->listaCompra;
+}
 
 void Cliente::setId(const std::string& newId) {
   this->id = newId;

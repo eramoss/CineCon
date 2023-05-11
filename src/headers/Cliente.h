@@ -2,7 +2,7 @@
 #define CLIENTE_H
 #include <string>
 #include "Pessoa.h"
-
+#include "ListaCompra.h"
 
 
 class Cliente: public Pessoa{
@@ -16,6 +16,7 @@ public:
   std::string getId() const;
   bool getPCD() const;
   int getIdade() const;
+  ListaCompra getListaCompra() const;
 
   void setId(const std::string&);
   void setNome(const std::string&);
@@ -26,7 +27,7 @@ public:
 private:
   int idade;
   bool PCD;
-
+  ListaCompra listaCompra;
 
 };
 
