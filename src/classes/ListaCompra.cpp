@@ -8,10 +8,11 @@ void ListaCompra::adicionarBilhete(const Bilhete& bilhete) {
 }
 
 void ListaCompra::removerBilhete(const Bilhete& bilhete) {
-  auto it = std::find(bilhetes.begin(), bilhetes.end(), bilhete);
-  if (it != bilhetes.end()) {
+ for(auto it =bilhetes.begin(); it !=bilhetes.end(); ++it){
+  if(it->getId() == bilhete.getId()){
     bilhetes.erase(it);
   }
+ }
 }
 
 std::vector<Bilhete> ListaCompra::getBilhetes() const {
