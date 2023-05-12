@@ -21,6 +21,7 @@ Bilhete& ListaCompra::busacarBilhete(const std::string& id) {
       return *it;
     }
   }
+  std::__throw_invalid_argument("Não existe bilhete com este Id");
 }
 
 std::vector<Bilhete> ListaCompra::getBilhetes() const {
