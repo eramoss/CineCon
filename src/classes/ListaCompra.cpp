@@ -7,12 +7,20 @@ void ListaCompra::adicionarBilhete(const Bilhete& bilhete) {
   bilhetes.push_back(bilhete);
 }
 
-void ListaCompra::removerBilhete(const Bilhete& bilhete) {
+void ListaCompra::removerBilhete(const std::string& id) {
  for(auto it =bilhetes.begin(); it !=bilhetes.end(); ++it){
-  if(it->getId() == bilhete.getId()){
+  if(it->getId() == id){
     bilhetes.erase(it);
   }
  }
+}
+
+Bilhete& ListaCompra::busacarBilhete(const std::string& id) {
+  for(auto it =bilhetes.begin(); it !=bilhetes.end(); ++it){
+    if(it->getId() == id){
+      return *it;
+    }
+  }
 }
 
 std::vector<Bilhete> ListaCompra::getBilhetes() const {

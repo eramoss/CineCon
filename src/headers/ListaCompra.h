@@ -7,7 +7,8 @@
 class ListaCompra {
 public:
   void adicionarBilhete(const Bilhete& bilhete);
-  void removerBilhete(const Bilhete& bilhete);
+  void removerBilhete(const std::string&);
+  Bilhete& busacarBilhete(const std::string&);
   std::vector<Bilhete> getBilhetes() const;
   double getPrecoTotal() const;
 
