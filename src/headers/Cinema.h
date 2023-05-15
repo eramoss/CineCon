@@ -11,10 +11,10 @@ public:
   Cinema(ListaCliente lsCliente,ListaSessao lsSessao,ListaFilme lsFilme,ListaSala lsSala);
   ~Cinema();
 
-  ListaCliente& getLsClinete() const;
-  ListaSessao& getLsSessao() const;
-  ListaFilme& getLsFilme() const;
-  ListaSala& getLsSala() const;
+  ListaCliente& getLsClinete() ;
+  ListaSessao& getLsSessao() ;
+  ListaFilme& getLsFilme() ;
+  ListaSala& getLsSala() ;
 
 private:
   ListaCliente lsCliente;

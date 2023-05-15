@@ -2,7 +2,7 @@
 
 
 Cliente::Cliente(){}
-Cliente::Cliente(const std::string& id,const std::string& nome,bool PCD,int idade):Pessoa(id,nome){
+Cliente::Cliente(const std::string& id,const std::string& nome,bool PCD,int idade):Pessoa(id,nome),listaCompra(){
   this->PCD = PCD;
   this->idade = idade;
 }
@@ -24,8 +24,8 @@ bool Cliente::getPCD() const {
 int Cliente::getIdade() const {
   return this->idade;
 }
-ListaCompra Cliente::getListaCompra() const {
-  return this->listaCompra;
+ListaCompra& Cliente::getListaCompra(){
+  return listaCompra;
 }
 
 void Cliente::setId(const std::string& newId) {

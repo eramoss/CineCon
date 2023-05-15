@@ -22,7 +22,7 @@ Sala Sessao::getSala() const {
     return this->sala;
 }
 
-std::vector<Assento> Sessao::getAssentoDisp() const {
+std::vector<Assento>& Sessao::getAssentoDisp() {
     return this->assentosDisponiveis;
 }
 std::string Sessao::getId() const {

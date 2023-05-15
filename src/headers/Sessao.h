@@ -14,7 +14,7 @@ public:
 
   Filme getFilme() const;
   Sala getSala() const;
-  std::vector<Assento> getAssentoDisp() const;
+  std::vector<Assento>& getAssentoDisp() ;
   std::string getId() const;
 
   Sessao& setFilme(const Filme &);

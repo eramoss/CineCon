@@ -16,7 +16,7 @@ public:
   std::string getId() const;
   bool getPCD() const;
   int getIdade() const;
-  ListaCompra getListaCompra() const;
+  ListaCompra& getListaCompra();
 
   void setId(const std::string&);
   void setNome(const std::string&);
