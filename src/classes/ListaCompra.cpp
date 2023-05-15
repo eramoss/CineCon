@@ -1,6 +1,5 @@
 #include "../headers/ListaCompra.h"
 #include <algorithm>
-#include <iostream>
 
 
 
@@ -25,7 +24,7 @@ Bilhete& ListaCompra::busacarBilhete(const std::string& id) {
   std::__throw_invalid_argument("Não existe bilhete com este Id");
 }
 
-std::vector<Bilhete> ListaCompra::getBilhetes() {
+std::vector<Bilhete>& ListaCompra::getBilhetes() {
   return this->bilhetes;
 }
 

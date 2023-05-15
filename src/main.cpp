@@ -20,6 +20,13 @@ int main(int argc, char const *argv[]){
     
 
     cliente->getListaCompra().adicionarBilhete(*bilhete);
+    if (cliente->getPCD() || cliente->getIdade() < 18){
+        std::vector<Bilhete> &vec = cliente->getListaCompra().getBilhetes();
+        for ( auto it = vec.begin(); it != vec.end(); it++){
+            it->setIsMeio(true);
+            it->setPreco(it->getPreco()/2);
+        }
+    }
 
    std::cout << cliente->getListaCompra().getPrecoTotal() << std::endl;
     
