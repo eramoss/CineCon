@@ -46,7 +46,7 @@ void ListaSessao::removeSessao(const std::string& id) {
 
 Sessao* ListaSessao::findSessao(const std::string& id)  {
   for (Sessao& sessao : sessoes) {
-    if (sessao.getId() == id) {
+    if (sessao.getFilme().getId() == id) {
       return &sessao;
     }
   }
