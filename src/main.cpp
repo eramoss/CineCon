@@ -6,13 +6,12 @@
 ListaFilme *listaFilme = new ListaFilme();
 ListaSala *listaSala = new ListaSala();
 ListaSessao *listaSessao = new ListaSessao();
-
 Filme *filme = new Filme("1", "wall-e", true, true, HOUR_IN_TIME_T, {15, 30, 2, 6, 2023});
 Sala *sala = new Sala("idSala", 18);
-Sessao *sessao = new Sessao(*filme, *sala, "idFilme");
+Sessao *sessao = new Sessao(*filme, *sala,38.50, "idSessao");
 Cliente *cliente = new Cliente("546431654", "eduardo", false, 17);
 
-AdminCinema *admin = new AdminCinema("id", "admin", "alo");
+AdminCinema *admin = new AdminCinema("idAdmin", "admin", "0000");
 
 void FinalizarCompra(Cliente & cliente){
 	system("clear");
@@ -43,7 +42,8 @@ void menu_cliente()
 		std::cout << "\n\n\t\t\t2. Adcionar ingresso no carrinho";
 		std::cout << "\n\n\t\t\t3. Retirar do carrinho";
 		std::cout << "\n\n\t\t\t4. Realizar Compra";
-		std::cout << "\n\n\t\t\t5. Listar ingressos no carrinho\n\n\t\t\t";
+		std::cout << "\n\n\t\t\t5. Listar ingressos no carrinho";
+		std::cout << "\n\n\t\t\t6. Sair\n\n\t\t\t";
 		std::cin >> aux_menu_cliente;
 
 		if (aux_menu_cliente == 1)
@@ -129,12 +129,12 @@ void menu_cliente()
 			std::cout << "\n\t\t\t\t\t----------------------------";
 			std::cout << "\n\n\n\n\t\t\t\tHorario do filme: '" << filme_i->getNome() << "' : ";
 			const time_t data = filme_i->getData();
+			Sessao * sessao_i = listaSessao->findSessao(filme_i->getId());
 			std::cout << " " << asctime(localtime(&data)) << "\n";
-			std::cout << "\t\t\t\tPreço do filme: " << 38.50;
+			std::cout << "\t\t\t\tPreço do filme: " << sessao_i->preco;
 			std::cout << "\n\t\t\t\ttem certeza que deseja realizar a compra? (y/n): \n";
 			std::string escolha;
 			std::cin >> escolha;
-			Sessao * sessao_i = listaSessao->findSessao(filme_i->getId());
 			if (escolha == "y"){
 				for (int i = 0; i < sessao_i->getAssentoDisp().size(); i++){
 					std::cout << "\t\t\t\t" << sessao_i->getAssentoDisp()[i].getId() << "\n";
@@ -142,10 +142,10 @@ void menu_cliente()
 				std::cout << "\t\t\t\tQual assento você deseja? \n";
 				std::string assentoId;
 				std::cin >> assentoId;
-				Bilhete * bilhete = new Bilhete(std::to_string( time(NULL) %rand() ),38.50,*sessao_i,assentoId);
+				Bilhete * bilhete = new Bilhete(std::to_string( time(NULL) %rand() ),sessao_i->preco,*sessao_i,assentoId);
 				if(cliente->getIdade() < 18 || cliente->getPCD()){
 					bilhete->setIsMeio(true);
-					bilhete->setPreco(38.50/2);
+					bilhete->setPreco(sessao_i->preco/2);
 				}
 				cliente->getListaCompra().adicionarBilhete(*bilhete);
 				system("read 0 -p");
@@ -180,14 +180,12 @@ void menu_cliente()
 			}
 			system("read 0 -p");
 		}
-	} while (aux_menu_cliente != 7);
+	} while (aux_menu_cliente != 6);
 }
 
 void menu_admin()
 {
-	system("clear");
-	std::cout << "cu";
-	system("read -n1 -r -p \"Press any key to continue...\"");
+
 }
 
 int main()
@@ -201,12 +199,16 @@ int main()
 
 	int select = 0;
 
-	std::cout << "\n\t\t\t\t\t----------------------------";
+	
+	do
+	{
+		std::cout << "\n\t\t\t\t\t----------------------------";
 	std::cout << "\n\t\t\t\t\t| CINECON - MENU DE ACESSO |";
 	std::cout << "\n\t\t\t\t\t----------------------------";
 	std::cout << "\n\n\n\n\t\t\t- Selecione o seu tipo de acesso -";
 	std::cout << "\n\n\n\n\t\t\t1. Acesso de Cliente";
-	std::cout << "\n\n\t\t\t2. Acesso Admin\n\n\n\n\t\t\t";
+	std::cout << "\n\n\t\t\t2. Acesso Admin";
+	std::cout << "\n\n\t\t\t3. Sair\n\n\n\n\t\t\t";
 
 	std::cin >> select; // Verifica a tecla pressionada no teclado
 
@@ -230,7 +232,25 @@ int main()
 	}
 	else if (select == 2)
 	{
-		menu_admin();
+		system("clear");
+		int tentativas = 0;
+		do
+		{		
+			std::cout << "INSIRA A SENHA DE ADMIN\t(default: 0000)\n";
+			std::string senha;
+			std::cin >> senha;
+			if (senha == admin->getSenha()){
+				menu_admin();	
+				tentativas = 3;
+			} else {
+				++tentativas;
+				system("clear");
+				std::cout << "\n\nsenha invalida!\n\n";
+			}
+		} while (tentativas < 3);
 	}
+	} while (select!=3);
+
+	
 	return 0;
 }
