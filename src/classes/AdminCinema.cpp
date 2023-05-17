@@ -21,8 +21,8 @@ void AdminCinema::deleteSessao(const std::string& id, ListaSessao & lista){
   lista.removeSessao(id);
   delete sessao;
 }
-void AdminCinema::createSessao(const Filme &filme,const Sala &sala, const std::string & id, ListaSessao & lista){
-  Sessao * sessao = new Sessao(filme,sala,id);
+void AdminCinema::createSessao(const Filme &filme,const Sala &sala, const std::string & id,float preco, ListaSessao & lista){
+  Sessao * sessao = new Sessao(filme,sala,id,preco);
   lista.addSessao(*sessao);
 }
 void AdminCinema::createSessao(Sessao & sessao , ListaSessao & lista){

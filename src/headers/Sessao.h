@@ -9,7 +9,7 @@ class Sessao{
 
 public:
   Sessao();
-  Sessao(const Filme &filme,const Sala &sala, std::string id);
+  Sessao(const Filme &filme,const Sala &sala, std::string id,float preco);
   ~Sessao();
 
   Filme getFilme() const;
@@ -27,7 +27,7 @@ public:
   Assento findAssento(const std::string &id);
   void addAssentoReservado(const std::string & id);
   void rmvAssentoReservado(const std::string & id);
-
+  float preco;
 private:
   std::string id;
   Filme filme;

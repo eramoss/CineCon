@@ -26,7 +26,7 @@ public:
   void createFilme(Filme & filme,ListaFilme & lista);
   void deleteFilme(const std::string& id,ListaFilme & lista);
 
-  void createSessao(const Filme &filme,const Sala &sala, const std::string & id,ListaSessao & lista);
+  void createSessao(const Filme &filme,const Sala &sala, const std::string & id,float preco,ListaSessao & lista);
   void createSessao(Sessao & sessao,ListaSessao & lista);
   void deleteSessao(const std::string& id, ListaSessao & lista);
 
