@@ -1,18 +1,26 @@
 #include "../headers/ListaCompra.h"
 #include <algorithm>
+#include <iostream>
 
 
+
+ListaCompra::ListaCompra(): bilhetes() {
+}
 
 void ListaCompra::adicionarBilhete(const Bilhete& bilhete) {
   this->bilhetes.push_back(bilhete);
 }
 
-void ListaCompra::removerBilhete(const std::string& id) {
+bool ListaCompra::removerBilhete(const std::string& id) {
  for(auto it =bilhetes.begin(); it !=bilhetes.end(); ++it){
   if(it->getId() == id){
     this->bilhetes.erase(it);
+    std::cout << "\n\t\t\t\tRetirado com sucesso!!";
+    return true;
   }
  }
+ std::cout << "\n\t\t\t\tOcorreu um erro contate o suporte...";
+ return false;
 }
 
 Bilhete& ListaCompra::busacarBilhete(const std::string& id) {

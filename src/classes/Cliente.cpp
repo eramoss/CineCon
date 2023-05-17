@@ -25,7 +25,7 @@ int Cliente::getIdade() const {
   return this->idade;
 }
 ListaCompra& Cliente::getListaCompra(){
-  return listaCompra;
+  return this->listaCompra;
 }
 
 void Cliente::setId(const std::string& newId) {

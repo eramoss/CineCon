@@ -6,8 +6,9 @@
 
 class ListaCompra {
 public:
+  ListaCompra();
   void adicionarBilhete(const Bilhete& bilhete);
-  void removerBilhete(const std::string&);
+  bool removerBilhete(const std::string&);
   Bilhete& busacarBilhete(const std::string&);
   std::vector<Bilhete>& getBilhetes();
   double getPrecoTotal() const;
