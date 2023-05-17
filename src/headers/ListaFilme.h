@@ -15,6 +15,8 @@ public:
   void removerFilme(const std::string& id);
   Filme* buscarFilme(const std::string& id);
 
+  std::vector<Filme>& getLista();
+
 private:
   std::vector<Filme> filmes;
 };

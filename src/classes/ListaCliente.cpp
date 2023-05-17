@@ -31,3 +31,7 @@ Cliente* ListaCliente::buscarCliente(const std::string& id) {
   }
   return nullptr;
 }
+
+std::vector<Cliente>& ListaCliente::getClienteList(){
+  return this->clientes;
+}

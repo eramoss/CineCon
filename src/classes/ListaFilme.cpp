@@ -32,3 +32,7 @@ Filme* ListaFilme::buscarFilme(const std::string& id) {
   }
   return nullptr;
 }
+
+std::vector<Filme>& ListaFilme::getLista(){
+  return this->filmes;
+}

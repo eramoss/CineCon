@@ -14,6 +14,7 @@ public:
   void adicionarCliente(const Cliente& cliente);
   void removerCliente(const std::string& id);
   Cliente* buscarCliente(const std::string& id);
+  std::vector<Cliente>& getClienteList();
 
 private:
   std::vector<Cliente> clientes;
