@@ -7,8 +7,8 @@ ListaFilme *listaFilme = new ListaFilme();
 ListaSala *listaSala = new ListaSala();
 ListaSessao *listaSessao = new ListaSessao();
 Filme *filme = new Filme("1", "wall-e", true, true, HOUR_IN_TIME_T, {15, 30, 2, 6, 2023});
-Sala *sala = new Sala("idSala", 18);
-Sessao *sessao = new Sessao(*filme, *sala, 38.50, "idSessao");
+Sala *sala = new Sala("1", 18);
+Sessao *sessao = new Sessao(*filme, *sala, 38.50, "1");
 Cliente *cliente = new Cliente("546431654", "eduardo", false, 17);
 
 AdminCinema *admin = new AdminCinema("idAdmin", "admin", "0000");

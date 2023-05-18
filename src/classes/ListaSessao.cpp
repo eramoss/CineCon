@@ -50,9 +50,9 @@ Sessao* ListaSessao::findSessao(const std::string& id)  {
       return &sessao;
     }
   }
-  std::__throw_runtime_error("Session not found");
+  return nullptr;
 }
 
-std::vector<Sessao> ListaSessao::getSessoes() const {
+std::vector<Sessao>& ListaSessao::getSessoes() {
   return sessoes;
 }

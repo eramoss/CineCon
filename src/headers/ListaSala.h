@@ -13,7 +13,7 @@ public:
   void addSala(const Sala &sala);
   Sala* findSala(const std::string &id);
   void removeSala(const std::string &id);
-  std::vector<Sala> getSalaList() const;
+  std::vector<Sala>& getSalaList() ;
 
 private:
   std::vector<Sala> salas;
