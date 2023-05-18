@@ -24,7 +24,7 @@ O menu do administrador oferece as seguintes opções:
 
 Para compilar e executar o programa, siga as instruções abaixo:
 
-1. Certifique-se de ter instalado um compilador C++ em seu sistema.
+1. Certifique-se de ter instalado um compilador C++ em seu sistema. \
    1.1 Caso não seja o g++ troque no makefile e certifique-se se as flags passadas existem.
 2. Baixe todos os arquivos necessários para a compilação, incluindo o arquivo Makefile.
 3. No terminal, navegue até o diretório onde os arquivos estão localizados.
