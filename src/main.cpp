@@ -9,8 +9,7 @@ ListaSessao *listaSessao = new ListaSessao();
 Filme *filme = new Filme("1", "wall-e", true, true, HOUR_IN_TIME_T, {15, 30, 2, 6, 2023});
 Sala *sala = new Sala("1", 18);
 Sessao *sessao = new Sessao(*filme, *sala, 38.50, "1");
-Cliente *cliente = new Cliente("546431654", "eduardo", false, 17);
-
+Cliente *cliente = new Cliente();
 AdminCinema *admin = new AdminCinema("idAdmin", "admin", "0000");
 
 void FinalizarCompra(Cliente &cliente)
@@ -64,7 +63,8 @@ void menu_cliente()
 			std::cout << "\n\n\t\t\t* Ou pressione qualquer tecla para voltar ao menu anterior *";
 			int consulta;
 			std::cin >> consulta;
-			if(consulta != 1) consulta = 0; 
+			if (consulta != 1)
+				consulta = 0;
 			if (consulta == 1)
 			{
 				system("clear");
@@ -210,7 +210,7 @@ void AdcionarFilme()
 	std::cout << "\n\t\t\t\t\t| MENU ADMIN - CRIAR FILME |";
 	std::cout << "\n\t\t\t\t\t----------------------------";
 	std::cout << "\n\n\n\n\t\t\t. Insira o nome do novo filme: ";
-	std::cin >> nome;
+	std::getline(std::cin, nome);
 	std::cout << "\n\n\t\t\t. O filme é dublado? (y/n)";
 	std::cin >> isDublado;
 	if (isDublado == "y")
@@ -364,34 +364,85 @@ void menu_admin()
 		{
 		case 1:
 		{
-			AdcionarFilme();
+			try
+			{
+				AdcionarFilme();
+			}
+			catch (const std::exception &e)
+			{
+				std::cerr << e.what() << '\n';
+				system("pause");
+			}
+
 			break;
 		}
 
 		case 2:
 		{
-			RemoverFilme();
+			try
+			{
+				RemoverFilme();
+			}
+			catch (const std::exception &e)
+			{
+				std::cerr << e.what() << '\n';
+				system("read 0 -p");
+			}
 			break;
 		}
 
 		case 3:
 		{
-			AdcionarSala();
+			try
+			{
+				AdcionarSala();
+			}
+			catch (const std::exception &e)
+			{
+				std::cerr << e.what() << '\n';
+				system("read 0 -p");
+			}
+
 			break;
 		}
 		case 4:
 		{
-			RemoverSala();
+			try
+			{
+				RemoverSala();
+			}
+			catch (const std::exception &e)
+			{
+				std::cerr << e.what() << '\n';
+				system("read 0 -p");
+			}
 			break;
 		}
 		case 5:
 		{
-			AdcionarSessao();
+			try
+			{
+				AdcionarSessao();
+			}
+			catch (const std::exception &e)
+			{
+				std::cerr << e.what() << '\n';
+				system("read 0 -p");
+			}
+
 			break;
 		}
 		case 6:
 		{
-			RemoverSessao();
+			try
+			{
+				RemoverSessao();
+			}
+			catch (const std::exception &e)
+			{
+				std::cerr << e.what() << '\n';
+				system("read 0 -p");
+			}
 			break;
 		}
 		}
@@ -427,13 +478,13 @@ int main()
 			system("clear");
 			std::cout << "INSIRA O NOME DE USUARIO\n";
 			std::string nome;
-			std::cin >> nome;
+			std::getline(std::cin, nome);
 			std::cout << "INSIRA O IDADE DO USUARIO\n";
 			int idade;
 			std::cin >> idade;
 			std::cout << "O USUARIO POSSUI ALGUM TIPO DE DEFICIÊNCIA?(y/n)\n";
 			std::string pcd;
-			std::cin >> pcd;
+			std::getline(std::cin, pcd);
 			pcd == "y" ? cliente->setPCD(true) : cliente->setPCD(false);
 			cliente->setNome(nome);
 			cliente->setIdade(idade);

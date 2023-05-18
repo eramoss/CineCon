@@ -33,6 +33,7 @@ Filme* ListaFilme::buscarFilme(const std::string& id) {
       return &(*it);//Caso o id do Iterador seja igual com o id recebido da função, é feito o return do iterador
     }
   }
+  std::__throw_invalid_argument("Erro na função findFilme, Filme inexistente");
   return nullptr;//Caso o id do Iterador seja diferente do id recebido da função, o programa retorna NULL;
 }
 

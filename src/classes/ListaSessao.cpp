@@ -52,6 +52,7 @@ Sessao* ListaSessao::findSessao(const std::string& id){
       return &sessao;//Caso a igualidade for confirmada, é feito o return da sessão
     }
   }
+  std::__throw_invalid_argument("Erro na função findSessao, Sessão inexistente");
   return nullptr;
 }
 

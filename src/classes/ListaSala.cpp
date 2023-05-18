@@ -21,6 +21,7 @@ Sala* ListaSala::findSala(const std::string &id) {
       return &(*it);//caso haja um id igual ao id recebido, ele da o return da sala
     }
   }
+    std::__throw_invalid_argument("Erro na função findSala, Sala inexistente");
     return nullptr;
 }
 
