@@ -1,6 +1,6 @@
 #include "../headers/Cliente.h"
 
-
+//Construtor do Cliente
 Cliente::Cliente(){}
 Cliente::Cliente(const std::string& id,const std::string& nome,bool PCD,int idade):Pessoa(id,nome),listaCompra(){
   this->PCD = PCD;
@@ -25,17 +25,15 @@ int Cliente::getIdade() const {
   return this->idade;
 }
 ListaCompra& Cliente::getListaCompra(){
-  return this->listaCompra;
+  return listaCompra;
 }
 
 void Cliente::setId(const std::string& newId) {
   this->id = newId;
-
 }
 
 void Cliente::setNome(const std::string& newNome) {
   this->nome = newNome;
-
 }
 
 Cliente& Cliente::setPCD(bool newPCD) {

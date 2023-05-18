@@ -1,7 +1,7 @@
 #include "../headers/Bilhete.h"
 #include <iostream>
 
-
+//Construtor de Bilhete
 Bilhete::Bilhete(){
 
 }
@@ -66,7 +66,7 @@ Bilhete& Bilhete::setSessao(const Sessao& newSessao) {
 Bilhete& Bilhete::setAssento( const  Assento & newAssento) {
   Assento * assento = const_cast<Assento *>(&newAssento);
   if (assento->isReservado()){
-    std::__throw_runtime_error("ERROR: na funÃ§Ã£o setAssento, assento jÃ¡ reservado");
+    std::__throw_runtime_error("ERROR: na função setAssento, assento já reservado");
     return*this;
   }
   assento->setReservado(true);
@@ -74,12 +74,10 @@ Bilhete& Bilhete::setAssento( const  Assento & newAssento) {
   return*this;
 }
 
-
 Bilhete& Bilhete::setIsMeio(bool isMeio){
   this->isMeio = isMeio;
   return*this;
 }
-
 
 Bilhete& Bilhete::Bilhete::setDataCompra(){
   this->dataCompra = time(NULL);

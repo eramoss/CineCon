@@ -1,8 +1,8 @@
 #include "../headers/Sala.h"
 
+//Construtor de Sala
 Sala::Sala() {}
 Sala::Sala(const std::string& id,int totalAssentos): assentos(totalAssentos) {
-
     this->id = id;
     this->totalAssentos = totalAssentos;
     for (int i = 0; i < totalAssentos - 1; i++) {

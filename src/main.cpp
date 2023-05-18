@@ -64,6 +64,7 @@ void menu_cliente()
 			std::cout << "\n\n\t\t\t* Ou pressione qualquer tecla para voltar ao menu anterior *";
 			int consulta;
 			std::cin >> consulta;
+			if(consulta != 1) consulta = 0; 
 			if (consulta == 1)
 			{
 				system("clear");

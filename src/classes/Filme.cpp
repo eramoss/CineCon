@@ -1,10 +1,12 @@
 #include "../headers/Filme.h"
 
 /*
-@param sequÃªncia Hora, Minuto, Dia, Mes, Ano;
+@param sequência Hora, Minuto, Dia, Mes, Ano;
 @param exemplo setData({15 ,30 ,2 ,6 ,2023});
-@param significado isso significa que este filme passarÃ¡ Ã s 3 e 30 da tarde no dia 2 do 6 em 2023
+@param significado isso significa que este filme passará às 3 e 30 da tarde no dia 2 do 6 em 2023
 */
+
+
 Filme& Filme::setData(const DataFilmeParams & params){
     struct tm newTime;
     newTime.tm_hour = params.hora;
@@ -18,12 +20,8 @@ Filme& Filme::setData(const DataFilmeParams & params){
     return *this;
 }
 
-
-Filme::Filme(){
-
-}
-
-
+Filme::Filme(){}
+//Construtor do Filme
 Filme::Filme(const std::string& id,const std::string& nome, bool isDublado, bool is3d,time_t duracao, const DataFilmeParams& data){
     this->id = id;
     this->nome = nome;
