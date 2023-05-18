@@ -59,13 +59,11 @@ void menu_cliente()
 
 				std::cout << "\t\t\t\t\t" << it->getFilme().getNome() << "\n";
 			}
-			std::cout << "\n\n\n\n\t\t\t1. Consultar Filmes";
-			std::cout << "\n\n\t\t\t* Ou pressione qualquer tecla para voltar ao menu anterior *";
-			int consulta;
+			std::cout << "\n\n\n\n\t\t\tConsultar Filmes: (y/n): \n";
+			std::cout << "\t\t\t";
+			std::string consulta;
 			std::cin >> consulta;
-			if (consulta != 1)
-				consulta = 0;
-			if (consulta == 1)
+			if (consulta == "y")
 			{
 				system("clear");
 				std::cout << "\n\t\t\t\t----------------------------";
@@ -210,7 +208,7 @@ void AdcionarFilme()
 	std::cout << "\n\t\t\t\t\t| MENU ADMIN - CRIAR FILME |";
 	std::cout << "\n\t\t\t\t\t----------------------------";
 	std::cout << "\n\n\n\n\t\t\t. Insira o nome do novo filme: ";
-	std::getline(std::cin, nome);
+	std::getline(std::cin>> std::ws, nome);
 	std::cout << "\n\n\t\t\t. O filme é dublado? (y/n)";
 	std::cin >> isDublado;
 	if (isDublado == "y")
@@ -476,15 +474,15 @@ int main()
 		if (select == 1)
 		{ // Caso a tecla pressionada seja 1
 			system("clear");
-			std::cout << "INSIRA O NOME DE USUARIO\n";
+			std::cout << "INSIRA O NOME DE USUARIO: ";
 			std::string nome;
-			std::getline(std::cin, nome);
-			std::cout << "INSIRA O IDADE DO USUARIO\n";
+			std::getline(std::cin>> std::ws, nome);
+			std::cout << "INSIRA O IDADE DO USUARIO: ";
 			int idade;
 			std::cin >> idade;
-			std::cout << "O USUARIO POSSUI ALGUM TIPO DE DEFICIÊNCIA?(y/n)\n";
+			std::cout << "O USUARIO POSSUI ALGUM TIPO DE DEFICIÊNCIA?(y/n): ";
 			std::string pcd;
-			std::getline(std::cin, pcd);
+			std::cin >> pcd;
 			pcd == "y" ? cliente->setPCD(true) : cliente->setPCD(false);
 			cliente->setNome(nome);
 			cliente->setIdade(idade);
