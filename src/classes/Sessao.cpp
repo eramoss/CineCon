@@ -4,10 +4,11 @@
 #include <fmtmsg.h>
 
 Sessao::Sessao() {}
-Sessao::Sessao(const Filme &filme,const Sala &sala, std::string id): filme(filme), sala(sala), assentosDisponiveis(sala.getAssentos().size()), id(id){
+Sessao::Sessao(const Filme &filme,const Sala &sala,float preco, std::string id): filme(filme), sala(sala), assentosDisponiveis(sala.getAssentos().size()), id(id){
     for (int i = 0; i < this->assentosDisponiveis.size(); i++) {
         assentosDisponiveis[i] = sala.getAssentos()[i];
     }
+    this->preco = preco;
 }
 
 

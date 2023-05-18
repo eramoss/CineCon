@@ -1,6 +1,6 @@
 #include "../headers/ListaSala.h"
 
-ListaSala::ListaSala() {}
+ListaSala::ListaSala(): salas() {}
 
 ListaSala::~ListaSala() {}
 
@@ -14,24 +14,23 @@ void ListaSala::addSala(const Sala &sala) {
 }
 
 Sala* ListaSala::findSala(const std::string &id) {
-  for (Sala &sala : salas) {
-    if (sala.getId() == id) {
-      return &sala;
+  for (auto it = salas.begin(); it != salas.end(); ++it) {
+    if (it->getId() == id) {
+      return &(*it);
     }
   }
-  std::__throw_invalid_argument("Sala não encontrada.");
+  return nullptr;
 }
 
 void ListaSala::removeSala(const std::string &id) {
   for (auto it = salas.begin(); it != salas.end(); ++it) {
     if (it->getId() == id) {
       salas.erase(it);
-      return;
+      break;
     }
   }
-  std::__throw_invalid_argument("Sala não encontrada.");
 }
 
-std::vector<Sala> ListaSala::getSalaList() const {
+std::vector<Sala>& ListaSala::getSalaList()  {
   return salas;
 }
