@@ -5,7 +5,7 @@ Sala::Sala() {}
 Sala::Sala(const std::string& id,int totalAssentos): assentos(totalAssentos) {
     this->id = id;
     this->totalAssentos = totalAssentos;
-    for (int i = 0; i < totalAssentos ; i++) {
+    for (int i = 0; i <= totalAssentos ; i++) {
         Assento * a = new Assento(std::to_string(i),false);
         this->assentos[i] = *a;
     }
